@@ -20,15 +20,6 @@ rm -rf nombre_directorio    // elimina de manera recursiva y a la fuerza una car
 
 rm -rf .git  // elimina el repositorio GIT de la carpeta actual  // BAJO SU RESPONSABLIDAD
 
-
-
-pwd // donde estamos parados. en que carpeta.
-
-git init  // inicializa el repositorio en la carpeta ACTUAL. OJO ACTUAL.
-git add .  // subimos archivos al stage. 
-git commit -m "comentario del commit"
-
-
 ____ USO DE VIM ____
 
 vim <<nombrearchivo>> // entro al editor
@@ -41,7 +32,25 @@ tecla <<ESC>>  // salgo del modo EDITOR
 
 ------
 
+pwd // donde estamos parados. en que carpeta.
+
+ALIAS
+git config --global alias.lg "log --oneline --decorate --all --graph" // crear alias lg
+git  config --global alias.s "status -s -b" // alias para status
+
+git config --global --list // lista variables configuradas
+git config --global user.name "Tu nombre" // nombre para registrar cambios en GIT local
+git config --global user.email tucorreo@ejemplo.com // correo de usuario
+
+git init  // inicializa el repositorio en la carpeta ACTUAL. OJO ACTUAL.
+git add .  // subimos archivos al stage. 
+git commit -m "comentario del commit"
+
 git reset <commit hash> --hard  // vuelve a el estado del COMMIT tal cual como lo dejamos al momento de hacerlo. volvemos al pasado.
 
 git remote add origin <<su ruta>>
 git push -u origin master
+
+
+PAG DE PRACTICA
+https://learngitbranching.js.org/?locale=es_AR&NODEMO=
