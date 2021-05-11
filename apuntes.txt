@@ -38,15 +38,24 @@ ALIAS
 git config --global alias.lg "log --oneline --decorate --all --graph" // crear alias lg
 git  config --global alias.s "status -s -b" // alias para status
 
+CONFIGURACION
 git config --global --list // lista variables configuradas
 git config --global user.name "Tu nombre" // nombre para registrar cambios en GIT local
 git config --global user.email tucorreo@ejemplo.com // correo de usuario
 
+Flujo
 git init  // inicializa el repositorio en la carpeta ACTUAL. OJO ACTUAL.
 git add .  // subimos archivos al stage. 
 git commit -m "comentario del commit"
 
-git reset <commit hash> --hard  // vuelve a el estado del COMMIT tal cual como lo dejamos al momento de hacerlo. volvemos al pasado.
+Visualizar cambio
+git log // muestras los varios commits hechos
+
+Borra cambios - Regresa a una version especifica
+git checkout . // descarta cambios en directorio de trabajo. operacion irreversible
+git reset <commit hash> --hard  // vuelve a el estado del COMMIT tal cual como lo dejamos al momento de hacerlo. volvemos al pasado. Vuelve a un hash conocido
+
+
 
 git remote add origin <<su ruta>>
 git push -u origin master
