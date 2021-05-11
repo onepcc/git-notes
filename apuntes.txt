@@ -1,0 +1,47 @@
+pwd   // dice el directorio actual
+
+ls  // lista los archivos
+
+ls -al  // lista con detalle y archivos ocultos.
+
+cd c:  // cambio al disco C
+cd d: // cambio al disco d
+
+cd .. subo al directorio padre.
+cd . ir directorio actual.
+
+cd /  raiz del equipo o servidor
+
+cd  o  cd ~ // ir al home del  usuario
+
+cd nombre_carpeta  // ir a la carpeta y entrar
+
+rm -rf nombre_directorio    // elimina de manera recursiva y a la fuerza una carpeta.
+
+rm -rf .git  // elimina el repositorio GIT de la carpeta actual  // BAJO SU RESPONSABLIDAD
+
+
+
+pwd // donde estamos parados. en que carpeta.
+
+git init  // inicializa el repositorio en la carpeta ACTUAL. OJO ACTUAL.
+git add .  // subimos archivos al stage. 
+git commit -m "comentario del commit"
+
+
+____ USO DE VIM ____
+
+vim <<nombrearchivo>> // entro al editor
+tecla <<a>> o <<insert>>  // entro al modo EDITOR
+tecla <<ESC>>  // salgo del modo EDITOR
+:q   // SALIR
+:!q  // SALIR SIN GUARDAR
+:w // guardar
+:wq // GUARDAR Y SALIR
+
+------
+
+git reset <commit hash> --hard  // vuelve a el estado del COMMIT tal cual como lo dejamos al momento de hacerlo. volvemos al pasado.
+
+git remote add origin <<su ruta>>
+git push -u origin master
