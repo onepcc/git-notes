@@ -1,0 +1,119 @@
+Comando    //   Explicación 
+pwd        //    Nos dice la carpeta actual donde estamos. 
+ls         //     Lista el contenido que tenemos dentro.
+ls -al     //     lista de manera ordenada y mas detallada.
+cd 	   //     entrar a una carpeta. 
+cd ..      //     entrar a la carpeta ANTERIOR. 
+cd xxx [presionar tecla TABULACIÓN] //   rellena con el restante del nombre de un archivo o carpeta.
+clear    //   limpia pantalla
+cat        //    muestra el contenido de un archivo. 
+history 	// comandos ejecutados anteriormente 
+
+GIT
+
+git init  // crea un repositorio LOCAL en mi carpeta actual.
+
+git add <nombre archivo>  // sube el archivo o directorio al escenario (stage). 
+git add .  // sube todos los cambios al escenario
+git add --all  // mismo que anterior
+git add -A // mismo que anterior
+
+git restore . //saca los archivos del escenario (que son ya parte de algun commit)
+git rm --cached <file>  // saca los archivos del escenario que no son parte de algun commit. es decir son nuevos.
+
+
+
+//crea un alias llamado "s" para hacer un status mas resumido.
+git  config --global alias.s "status -s -b"  // se ejecuta una sola vez por PC o Mac.
+
+
+git commit -m "<<mensaje>>"  //  sacamos una foto al ESCENARIO.
+git commit --amend -m "este es un primer commit desde GIT"
+
+git log  // veo los commits registrados.
+
+git reset --soft HEAD^    // Quita el ultimo commit y deja los archivos en el escenario. 
+                          // Deja todo como si no se hubiera ejecutado el commit.  
+                          // Si algun archivo tiene nuevas modificaciones, dirá que 
+                          // tiene modificacion pendientes en el escenario y al mismo 
+                          // tiempo puede tambien estar en el escenario. Solo que uno 
+                          // de los cambios no está aun en el escenario. 
+git reset --soft <<idcommit>> // vuelve al commit indicado, quitando todos los commits anteriores a este. 
+
+git config --global alias.lg "log --oneline --decorate --all --graph"
+
+
+git reflog      // muestra un detalle completo de todo lo realizado en GIT.
+                //  Permite por ejemplo ir al pasado (o furuo en caso de haber eliminado commits)
+                //  para volver a un estado en aprticular.
+
+
+git reset --soft <numerocommit>  // quita todos los commit que existen hasta llegar al numero commit indicado. Deja los archivos en el stage.  
+
+git  reset --mixed <numerocommit>  // quita todos los commit hasta ese punto indicado y ademas deja los archivos fuera del stage.  Los cambios de los commit quitados siguen en nuestra carpeta. No se eliminan.
+
+git  reset --hard <numerocommit>  // quita todos los commit hasta ese commit indicado PERO ELIMINA TODOS LOS ARCHIVOS QUE ERAN PARTE DE ESOS COMIT. Es decir este comando nos deja tal como dejamos todo, al momento de hacer ese commit. Sin los archivos nuevos. 
+
+git  checkout -- <nombrearchivo>  // revierte los cambios y vuelve el archivo al estado anterior. 
+git  checkout -- . Volver a dejar todo como estaba en el ultimo commit : usar con cuidado porque podrías eliminar avance de tu trabajo actual. 
+
+
+git commit -am "mensaje del commit"
+
+
+
+
+
+
+------- ADICIONALES -------
+
+
+
+
+_____ GIT RAMAS ____
+
+
+git branch <nombrenuevarama>    // crea una nueva rama
+git branch                                            // lista ramas existentes
+git checkout <nombrerama>   // cambia a la rama que nombremos
+git diff <rama1> <rama2>  // compara diferencias entre ramas
+
+
+Para hacer merge y volver una rama X a la rama master, se debe 
+ir a la rama master con checkout primero. Es decir el HEAD debe
+ apuntar a la rama que quieres hacer el mergue. 
+
+git merge <ramadestino>    // le decimos a git que queremos juntar todo el contenido
+                           hasta los cambios de la rama destino. 
+                           Es decir incluir todos los commit .
+
+// cuando no existen commits en la rama master o a la cual queremos unir los cambios y hacemos un merge, este es conocido como  fast-fordward
+// cuando existen cambios en la rama a la cual queremos unir los cambios, pero no se topan archivos en comun en sus commits, y hacemos mergue, se llama mergue automatico. Debido a que crea solo un commit con los cambios. 
+// cuando existen archivos que se topan en las 2 ramas con commits, y hacemos mergue, este se le llama merge manual . Y tenemos que nosostros determinar que dejamos y que quitamos.  Y luego hacermos el commit. 
+
+
+// una vez que la rama este en master podria ser innecesario tenerla, por lo que se puede eliminar
+git branch -d <rama a eliminar>  // elimina una rama 
+
+
+
+
+Tags  :  son de uso para poder agregar versiones del programa o caracteristica a destacar. Y hace referencia a un COMMIT .
+
+git tag <nombre tag>    // crea un tag en el commit actual
+git tag -d   <nombretag> // elimina un tag
+
+Lo idea siempre al crear un tag es ejecutar de la siguiente manera, para crear una anotacion y mensaje.
+
+git tag -a v1.0.0 -m "Ejemplo de Tag v1.0.0"  // crea un tag llamado v1.0.0 con un mensaje. Al commit actual.
+git tag -a v0.1.0 <iddelcommit> -m "Ejemplo de Tag v0.a.0"  // crea un tag en el commit indicado. Es para agregar tag a commit pasados que se nos olvido crear.
+
+git show <nombretag>  // muestra detalle del tag indicado.
+
+git push --tags  // sube los tags al git remoto (github). 
+
+
+
+
+
+
