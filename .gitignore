@@ -1,5 +1,7 @@
+'04 - Git Clonado'/
 packages/
 *.png
 *.txt
-secrets.js
+secret.js
+
 
